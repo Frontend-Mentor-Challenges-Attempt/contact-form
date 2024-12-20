@@ -150,6 +150,12 @@ const ContactForm = () => {
             aria-invalid={!!errors.consent}
             aria-describedby="consentError"
             label="I consent to being contacted by the team"
+            onKeyDown={(e)=>{
+              if(e.key === "Enter"){
+                e.preventDefault();
+                (e.target as HTMLInputElement).click()
+              }
+            }}
             {...register("consent", {
               required:
                 "To submit this form, please consent to being contacted",
